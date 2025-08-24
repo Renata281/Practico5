@@ -45,8 +45,18 @@
             tNombre = new TextBox();
             pictureBox1 = new PictureBox();
             openFileDialog1 = new OpenFileDialog();
+            dataGridView1 = new DataGridView();
+            ColumnaNombre = new DataGridViewTextBoxColumn();
+            ColumnaApellido = new DataGridViewTextBoxColumn();
+            FechaNacimiento = new DataGridViewTextBoxColumn();
+            ColumnaSexo = new DataGridViewTextBoxColumn();
+            ColumnaSaldo = new DataGridViewTextBoxColumn();
+            ColumnaFoto = new DataGridViewImageColumn();
+            ColumnaRuta = new DataGridViewTextBoxColumn();
+            ColumnaEliminar = new DataGridViewButtonColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -226,6 +236,58 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColumnaNombre, ColumnaApellido, FechaNacimiento, ColumnaSexo, ColumnaSaldo, ColumnaFoto, ColumnaRuta, ColumnaEliminar });
+            dataGridView1.Location = new Point(12, 390);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(771, 138);
+            dataGridView1.TabIndex = 2;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            // 
+            // ColumnaNombre
+            // 
+            ColumnaNombre.HeaderText = "Nombre";
+            ColumnaNombre.Name = "ColumnaNombre";
+            // 
+            // ColumnaApellido
+            // 
+            ColumnaApellido.HeaderText = "Apellido";
+            ColumnaApellido.Name = "ColumnaApellido";
+            // 
+            // FechaNacimiento
+            // 
+            FechaNacimiento.HeaderText = "Fecha nacimiento";
+            FechaNacimiento.Name = "FechaNacimiento";
+            // 
+            // ColumnaSexo
+            // 
+            ColumnaSexo.HeaderText = "Sexo";
+            ColumnaSexo.Name = "ColumnaSexo";
+            // 
+            // ColumnaSaldo
+            // 
+            ColumnaSaldo.HeaderText = "Saldo";
+            ColumnaSaldo.Name = "ColumnaSaldo";
+            // 
+            // ColumnaFoto
+            // 
+            ColumnaFoto.HeaderText = "Foto";
+            ColumnaFoto.Name = "ColumnaFoto";
+            // 
+            // ColumnaRuta
+            // 
+            ColumnaRuta.HeaderText = "Ruta";
+            ColumnaRuta.Name = "ColumnaRuta";
+            // 
+            // ColumnaEliminar
+            // 
+            ColumnaEliminar.HeaderText = "Eliminar";
+            ColumnaEliminar.Name = "ColumnaEliminar";
+            ColumnaEliminar.Text = "Eliminar";
+            ColumnaEliminar.UseColumnTextForButtonValue = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -233,15 +295,18 @@
             BackgroundImage = Properties.Resources.fondo;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(795, 591);
+            Controls.Add(dataGridView1);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
             ForeColor = SystemColors.GrayText;
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "Form1";
             Text = "Formulario con Grid";
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -264,5 +329,14 @@
         private PictureBox pictureBox1;
         private OpenFileDialog openFileDialog1;
         private TextBox tFoto;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn ColumnaNombre;
+        private DataGridViewTextBoxColumn ColumnaApellido;
+        private DataGridViewTextBoxColumn FechaNacimiento;
+        private DataGridViewTextBoxColumn ColumnaSexo;
+        private DataGridViewTextBoxColumn ColumnaSaldo;
+        private DataGridViewImageColumn ColumnaFoto;
+        private DataGridViewTextBoxColumn ColumnaRuta;
+        private DataGridViewButtonColumn ColumnaEliminar;
     }
 }

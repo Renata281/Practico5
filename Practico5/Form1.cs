@@ -30,16 +30,80 @@ namespace Practico5
 
         private void bAgregar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(tNombre.Text))
+            if (string.IsNullOrWhiteSpace(tNombre.Text) || string.IsNullOrWhiteSpace(tApellido.Text))
             {
-                string nombreFormateado = tNombre.Text.Substring(0, 1).ToUpper() + tNombre.Text.Substring(1).ToLower();
-                tNombre.Text = nombreFormateado;
+                MessageBox.Show("Los campos nombre y apellido no deben estar vacíos", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //validar saldo
+            decimal saldo;
+            if (!decimal.TryParse(tSaldo.Text, out saldo))
+            {
+                MessageBox.Show("El saldo debe ser un valor numérico", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (!string.IsNullOrEmpty(tApellido.Text))
+            //determinar el sexo seleccionado
+            string sexoSeleccionado = " ";
+            if (rbHombre.Checked)
             {
-                string apellidoFormateado = tApellido.Text.Substring(0, 1).ToUpper() + tApellido.Text.Substring(1).ToLower();
-                tApellido.Text = apellidoFormateado;
+                sexoSeleccionado = "Hombre";
+            }
+            else if (rbMujer.Checked)
+            {
+                sexoSeleccionado = "Mujer";
+            }
+
+            //formatea el nombre y apellido
+            string nombreFormateado = tNombre.Text.Substring(0, 1).ToUpper() + tNombre.Text.Substring(1).ToLower();
+            string apellidoFormateado = tApellido.Text.Substring(0, 1).ToUpper() + tApellido.Text.Substring(1).ToLower();
+
+            //crear un array de objetos con los datos del usuario
+            object[] fila =
+            {
+                nombreFormateado,
+                apellidoFormateado,
+                dtpNacimiento.Value.ToShortDateString(),
+                sexoSeleccionado,
+                saldo,
+                pictureBox1.Image,
+                tFoto.Text,
+            };
+
+            //agrega la fila al datagridview
+            dataGridView1.Rows.Add(fila);
+
+            //limpiar los campos
+            tNombre.Clear();
+            tApellido.Clear();
+            tSaldo.Clear();
+            tFoto.Clear();
+            pictureBox1.Image = null;
+            dtpNacimiento.Value = DateTime.Now;
+
+
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // configura el formato de la columna nombre y apellido
+            dataGridView1.Columns["ColumnaNombre"].DefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Italic);
+            dataGridView1.Columns["ColumnaApellido"].DefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Italic);
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //verifica que se haya hecho click en una fila válida
+            if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView1.Columns["ColumnaEliminar"].Index)
+            {
+                //mensaje de confirmación
+                DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar este registro?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if(resultado == DialogResult.Yes)
+                {
+                    //elimina la fila seleccionada
+                    dataGridView1.Rows.RemoveAt(e.RowIndex);
+                }
             }
         }
     }
