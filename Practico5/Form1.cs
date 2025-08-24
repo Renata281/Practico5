@@ -70,7 +70,14 @@ namespace Practico5
             };
 
             //agrega la fila al datagridview
-            dataGridView1.Rows.Add(fila);
+            int rowIndex = dataGridView1.Rows.Add(fila);
+
+            //cambiar el color de fondo de la fila segun el saldo
+            if(saldo < 50)
+            {
+                dataGridView1.Rows[rowIndex].DefaultCellStyle.BackColor = Color.Red;
+                dataGridView1.Rows[rowIndex].DefaultCellStyle.ForeColor = Color.White;
+            }
 
             //limpiar los campos
             tNombre.Clear();
