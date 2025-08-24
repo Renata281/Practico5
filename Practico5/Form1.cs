@@ -84,7 +84,11 @@ namespace Practico5
             tApellido.Clear();
             tSaldo.Clear();
             tFoto.Clear();
-            pictureBox1.Image = null;
+            string rutaImagenDefecto = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "", "");
+            if (File.Exists(rutaImagenDefecto))
+            {
+                pictureBox1.Image = Image.FromFile(rutaImagenDefecto);
+            }
             dtpNacimiento.Value = DateTime.Now;
 
 
@@ -96,6 +100,12 @@ namespace Practico5
             // configura el formato de la columna nombre y apellido
             dataGridView1.Columns["ColumnaNombre"].DefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Italic);
             dataGridView1.Columns["ColumnaApellido"].DefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Italic);
+
+            string rutaImagenDefecto = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "", "");
+            if (File.Exists(rutaImagenDefecto))
+            {
+                pictureBox1.Image = Image.FromFile(rutaImagenDefecto);
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
