@@ -32,17 +32,17 @@
             tFoto = new TextBox();
             bAgregar = new Button();
             bFoto = new Button();
-            dateTimePicker1 = new DateTimePicker();
+            dtpNacimiento = new DateTimePicker();
             rbHombre = new RadioButton();
             rbMujer = new RadioButton();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
+            tSaldo = new TextBox();
+            tApellido = new TextBox();
             lSaldo = new Label();
             lSexo = new Label();
             lNacimiento = new Label();
             lApellido = new Label();
             lNombre = new Label();
-            textBox1 = new TextBox();
+            tNombre = new TextBox();
             pictureBox1 = new PictureBox();
             openFileDialog1 = new OpenFileDialog();
             panel1.SuspendLayout();
@@ -55,17 +55,17 @@
             panel1.Controls.Add(tFoto);
             panel1.Controls.Add(bAgregar);
             panel1.Controls.Add(bFoto);
-            panel1.Controls.Add(dateTimePicker1);
+            panel1.Controls.Add(dtpNacimiento);
             panel1.Controls.Add(rbHombre);
             panel1.Controls.Add(rbMujer);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(tSaldo);
+            panel1.Controls.Add(tApellido);
             panel1.Controls.Add(lSaldo);
             panel1.Controls.Add(lSexo);
             panel1.Controls.Add(lNacimiento);
             panel1.Controls.Add(lApellido);
             panel1.Controls.Add(lNombre);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(tNombre);
             panel1.Location = new Point(38, 12);
             panel1.Name = "panel1";
             panel1.Size = new Size(374, 337);
@@ -90,6 +90,7 @@
             bAgregar.Text = "Agregar";
             bAgregar.TextAlign = ContentAlignment.MiddleRight;
             bAgregar.UseVisualStyleBackColor = true;
+            bAgregar.Click += bAgregar_Click;
             // 
             // bFoto
             // 
@@ -102,13 +103,13 @@
             bFoto.UseVisualStyleBackColor = true;
             bFoto.Click += bFoto_Click;
             // 
-            // dateTimePicker1
+            // dtpNacimiento
             // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(200, 110);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(119, 23);
-            dateTimePicker1.TabIndex = 10;
+            dtpNacimiento.Format = DateTimePickerFormat.Short;
+            dtpNacimiento.Location = new Point(200, 110);
+            dtpNacimiento.Name = "dtpNacimiento";
+            dtpNacimiento.Size = new Size(119, 23);
+            dtpNacimiento.TabIndex = 10;
             // 
             // rbHombre
             // 
@@ -134,19 +135,19 @@
             rbMujer.Text = "Mujer";
             rbMujer.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // tSaldo
             // 
-            textBox3.Location = new Point(200, 177);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(119, 23);
-            textBox3.TabIndex = 7;
+            tSaldo.Location = new Point(200, 177);
+            tSaldo.Name = "tSaldo";
+            tSaldo.Size = new Size(119, 23);
+            tSaldo.TabIndex = 7;
             // 
-            // textBox2
+            // tApellido
             // 
-            textBox2.Location = new Point(200, 71);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(119, 23);
-            textBox2.TabIndex = 6;
+            tApellido.Location = new Point(200, 71);
+            tApellido.Name = "tApellido";
+            tApellido.Size = new Size(119, 23);
+            tApellido.TabIndex = 6;
             // 
             // lSaldo
             // 
@@ -203,12 +204,12 @@
             lNombre.TabIndex = 1;
             lNombre.Text = "Nombre";
             // 
-            // textBox1
+            // tNombre
             // 
-            textBox1.Location = new Point(200, 36);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(119, 23);
-            textBox1.TabIndex = 0;
+            tNombre.Location = new Point(200, 36);
+            tNombre.Name = "tNombre";
+            tNombre.Size = new Size(119, 23);
+            tNombre.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -252,12 +253,12 @@
         private Label lNacimiento;
         private Label lApellido;
         private Label lNombre;
-        private TextBox textBox1;
+        private TextBox tNombre;
         private RadioButton rbHombre;
         private RadioButton rbMujer;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private DateTimePicker dateTimePicker1;
+        private TextBox tSaldo;
+        private TextBox tApellido;
+        private DateTimePicker dtpNacimiento;
         private Button bAgregar;
         private Button bFoto;
         private PictureBox pictureBox1;
